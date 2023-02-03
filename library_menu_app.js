@@ -109,7 +109,7 @@ class Library {
             let description = 'Genre Name: ' + this.selectedGenre.type + '\n';
 
             for (let i =0; i < this.selectedGenre.books.length; i++) {
-                description += i + ')' + this.selectedGenre.books[i].title
+                description += i + ') ' + this.selectedGenre.books[i].title
                 + ' - ' + this.selectedGenre.books[i].author + '\n';
             }
             
