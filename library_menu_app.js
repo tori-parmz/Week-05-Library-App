@@ -11,7 +11,7 @@ class Book {
 //Then a class called 'Genre' that will store books of the same genre
 class Genre {
     constructor(genreType) {
-        this.genre = genreType;
+        this.type = genreType;
         this.books = [];
     }
 
@@ -21,7 +21,7 @@ class Genre {
 
 class Library {
     constructor() {
-        this.genres = [];
+        this.allGenres = [];
         this.selectedGenre = null;
     }
 //The 'start' method will create a dialogue that will allow a user to either create new genres of books, view genres,
@@ -72,21 +72,21 @@ class Library {
 
     displayGenres() {
         let genreString = '';
-        for (let i = 0; i < this.genres.length; i++) {
-            genreString += i + ')' + this.genres[i].genreType + '\n';
+        for (let i = 0; i < this.allGenres.length; i++) {
+            genreString += i + ')' + this.allGenres[i].genreType + '\n';
         }
         alert(genreString);
     }
     createGenre() {
         let genreType = prompt (`Enter name for new genre type:`);
-        this.genres.push(new Genre(genreType));
-        console.log('Genre added: ', this.genres);
+        this.allGenres.push(new Genre(genreType));
+        console.log('Genre added: ', this.allGenres);
     }
     //
     viewGenre() {
         let index = prompt(`Enter the index of the genre you wish to view.`);
-        if (index > -1 && index < this.genres.length) {
-            this.selectedGenre = this.genres[index];
+        if (index > -1 && index < this.allGenres.length) {
+            this.selectedGenre = this.allGenres[index];
             let description = 'Genre Name: ' + this.selectedGenre.genreType + '\n';
 
             for (let i =0; i < this.selectedGenre.books.length; i++) {
@@ -107,8 +107,8 @@ class Library {
 
     deleteGenre() {
         let index = propmt(`Enter the name of the genre you wish to delete:`);
-        if (index > -1 && index < this.genres.length) {
-            this.genres.splice(index, 1);
+        if (index > -1 && index < this.allGenres.length) {
+            this.allGenres.splice(index, 1);
         }
     }
 
